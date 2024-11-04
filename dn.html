@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập BingXue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('http://bingxueglobal.com/uploadfile/2024/09/266bf78a22fe3e6dd.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+      
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px); 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            width: 100%; 
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ec6a00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Đăng Nhập</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Tên Đăng Nhập</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật Khẩu</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button style="margin-left: 10px;" type="submit">Đăng Nhập</button>
+            <p class="message">Bạn chưa có tài khoản? <a href="dangki.html">Đăng ký ngay</a></p>
+        </form>
+        <p id="feedback" class="feedback"></p>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const feedback = document.getElementById('feedback');
+
+           
+            if (username === 'admin' && password === '123456') {
+                feedback.textContent = 'Đăng nhập thành công!';
+                feedback.style.color = 'green';
+                
+            } else {
+                feedback.textContent = 'Tên đăng nhập hoặc mật khẩu không đúng.';
+                feedback.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

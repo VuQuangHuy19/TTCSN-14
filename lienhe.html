@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/styles.css">
+    <title>Bingxue Cafe</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+    
+        .header {
+            background-color: #ec6a00; 
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .header nav a:hover {
+            text-decoration: underline;
+        }
+
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+       
+        .banner {
+            background-color: #ec6a00; 
+            background-image: url("http://bingxueglobal.com/uploadfile/2023/07/140485da6ef0523e.jpg"); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .banner p {
+            font-size: 18px;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+     
+        .mascot {
+            width: 200px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+       
+        .contact-section {
+            background-color: #f1f1f1;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .contact-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .contact-box h3 {
+            font-size: 18px;
+            color: #333;
+        }
+
+      
+        .feedback-section {
+            background-color: #fff;
+            padding: 50px 20px;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .feedback-form button {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #ec6a00; 
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #c0392b; 
+        }
+
+       
+        .footer {
+            background-color: #ec6a00; 
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            color: white;
+        }
+
+        .footer .footer-section {
+            width: 200px;
+            text-align: left;
+        }
+
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer p, .footer a {
+            color: white;
+            font-size: 16px;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href=""><img src="images/logo.png" alt="FPT Shop Logo" class="logo"></a>
+
+        </div>
+        <ul class="nav-links">
+            <li>
+                <div class="trangchu-container">
+                    <button class="trangchu-button"><a href="index.html">Trang Chủ</a></button>
+                </div>
+    
+            </li>
+            <li>
+                <div class="trangchu-container">
+                    <a href="vechungtoi.html"><button class="trangchu-button">Về Chúng Tôi</button></a>
+                </div>
+            </li>
+            <li>
+                <div class="trangchu-container">
+                    <a href="nhuongquyen.html"><button class="trangchu-button">Nhưọng Quyền</button></a>
+                    
+                </div>
+            </li>
+            <li>
+                <div class="trangchu-container">
+                    <a href="menu.html"><button class="trangchu-button">Sản Phẩm</button></a>
+                    <div class="dropdown-content">
+                        <a href="best.html">Best-Seller</a>
+                        <a href="kem.html">Kem Và Trà</a>
+                        <a href="nuoc.html">Nước dừa Bingxue</a>
+                        <a href="tra.html">Trà Hoa Quả Tươi</a>
+                        <a href="trasua.html">Trà Sữa Bingxue Tea</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="trangchu-container">
+                    <a href="menu.html"><button class="trangchu-button">Cửa Hàng</button></a>
+                    <div class="dropdown-content">
+                        <a href="#">Hà Nội </a>
+                        <a href="#">TP HCM </a>
+                        
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="trangchu-container">
+                    <a href="lienhe.html"><button class="trangchu-button">Liên Hệ</button></a>
+                    
+                </div>
+            </li>
+            <div class="nav-icons">
+                <a href="#" class="search-icon"><img src="images/find.png" alt="Search Icon"></a>
+                
+            </div>
+            <li>
+                <div class="trangchu-container">
+                    <button class="trangchu1-button" onclick="goToRegister()"><img src="images/dung1.png" alt="" style="width: 30px;"></button>
+                </div>
+            </li> 
+        <script>
+            function goToRegister() {
+                window.location.href = "dn.html"; // Chuyển đến trang đăng ký
+            }
+        </script>
+        </ul>
+    </nav>
+
+    <section class="banner">
+        
+    </section>
+
+
+    <section class="contact-section">
+        <div class="contact-box">
+            <h3>Số điện thoại</h3>
+            <p>400 876 1983</p>
+        </div>
+        <div class="contact-box">
+            <h3>Địa chỉ</h3>
+            <p>123 Đường Kem, Thành phố Ngọt Ngào</p>
+        </div>
+        <div class="contact-box">
+            <h3>Giờ mở cửa</h3>
+            <p>Thứ Hai - Chủ Nhật: 10h sáng - 10h tối</p>
+        </div>
+    </section>
+
+   
+    <section class="feedback-section">
+        <h2 style="color: #ec6a00;" align = "center">Phản hồi</h2>
+        <form class="feedback-form">
+            <input type="text" placeholder="Tên của bạn" required>
+            <input type="email" placeholder="Email của bạn" required>
+            <textarea placeholder="Lời nhắn của bạn" rows="4" required></textarea>
+            <button type="submit">Gửi</button>
+        </form>
+    </section>
+
+    
+    <footer>
+        <div class="footer-container">
+            <p>Contact us anytime and leave your phone number. We will contact you within 24 hours.</p>
+            <p class="hotline">Hotline: 0244 244 422</p>
+            <hr>
+            <div class="footer-sections">
+                <div class="section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Brand Strength</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Join us</a></li>
+                        <li><a href="#">News & Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Franchise</h3>
+                    <ul>
+                        <li><a href="#">Franchise Process</a></li>
+                        <li><a href="#">Franchise Fee</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Service Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Best-seller Products</a></li>
+                        <li><a href="#">Milk-tea-&-Coffee</a></li>
+                        <li><a href="#">Real Fruit Tea</a></li>
+                        <li><a href="#">Fruit Coconut Milk</a></li>
+                        <li><a href="#">Fresh Ice Cream & Tea</a></li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Stores</h3>
+                    <ul>
+                        <li><a href="#">Store Image</a></li>
+                        <li><a href="#">Excellent Stores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
