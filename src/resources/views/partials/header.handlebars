@@ -1,8 +1,11 @@
 
-<link rel="stylesheet" href="css/style.css">
-<nav class="navbar">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav style="position:sticky" class="navbar">
         <div class="logo">
-            <a href=""><img src="img/logo.png" alt="Logo" class="logo"></a>
+            <a href="/"><img src="/img/logo.png" alt="Logo" class="logo"></a>
 
         </div>
         <ul class="nav-links">
@@ -20,7 +23,7 @@
             </li>
             <li>
                 <div class="trangchu-container">
-                    <a href="nhuongquyen.html"><button class="trangchu-button">Nhượng Quyền</button></a>
+                    <a href="/nhuongquyen"><button class="trangchu-button">Nhượng Quyền</button></a>
                     <div class="dropdown-content">
                         
                             <a href="#franchise-steps">Các Bước Nhượng Quyền</a>
@@ -34,13 +37,13 @@
             </li>
             <li>
                 <div class="trangchu-container">
-                    <a href="menu.html"><button class="trangchu-button">Sản Phẩm</button></a>
+                    <a href="/sanpham/menu"><button class="trangchu-button">Sản Phẩm</button></a>
                     <div class="dropdown-content">
-                        <a href="best.html">Best-Seller</a>
-                        <a href="kem.html">Kem Và Trà</a>
-                        <a href="nuoc.html">Nước dừa Bingxue</a>
-                        <a href="tra.html">Trà Hoa Quả Tươi</a>
-                        <a href="trasua.html">Trà Sữa Bingxue Tea</a>
+                        <a href="/sanpham/best">Best-Seller</a>
+                        <a href="/sanpham/kemtra">Kem</a>
+                        <a href="/sanpham/dua">Nước dừa Bingxue</a>
+                        <a href="/sanpham/hoaqua">Trà Hoa Quả Tươi</a>
+                        <a href="/sanpham/trasua">Trà Sữa Bingxue Tea</a>
                     </div>
                 </div>  
             </li>
@@ -58,20 +61,37 @@
                 <a style="text-decoration: none;" href="/lienhe">
                 <div class="trangchu-container">
                     <button class="trangchu-button">Liên Hệ</button>
-                    
                 </div></a>
             </li>
             <div class="nav-icons">
-                <a href="#" class="search-icon"><img src="img/find.png" alt="Search Icon"></a>
                 
-            </div>
-            <li>
-                <a href="/login">
-                    <div class="trangchu-container">
-                    <button class="trangchu1-button" onclick="goToRegister()"><img src="img/dung1.png" alt="" style="width: 30px;"></button>
-                </div>
+               
+                        <i id="login-btn"><img src="/img/dung1.png" alt="Login Icon" style="width: 30px;"></i>
+    
+                <a href="/cart/xem" class="trangchu-container">
+                    <img  src="/img/cart.webp" alt="" style="width: 30px;"> 
                 </a>
-            </li> 
+            </div>
+    
         
         </ul>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        
+        const loginIcon = document.querySelector('#login-btn');
+        if (loginIcon) {
+        loginIcon.addEventListener('click', () => {
+            fetch('/check')
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = data.loggedIn ? '/user' : '/login';
+                })
+                .catch(err => console.error("Lỗi kiểm tra trạng thái đăng nhập:", err));
+        });
+    } 
+
+        });
+    </script>
+</body>

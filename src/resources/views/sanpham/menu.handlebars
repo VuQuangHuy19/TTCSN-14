@@ -1,4 +1,11 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -10,8 +17,15 @@
             background-color: #f3f3f3;
         }
 
-        .container {
+        .container-pro {
+            margin-left: 30px;
             max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+
+        .type-pro
+        {
             margin: 0 auto;
             padding-bottom: 40px;
         }
@@ -120,6 +134,7 @@
         .buy-now-btn:hover {
             background-color: #e04447; /* Màu đậm hơn khi hover */
         }
+
         .add-to-cart-btn {
              background-color: #ff4d4f;
             color: white;
@@ -137,16 +152,13 @@
         .add-to-cart-btn:hover {
             background-color: #e04447;
         }
-
-        .type-pro
-        {
-            margin: 0 auto;
-            padding-bottom: 40px;
-        }
+        
     </style>
-
+</head>
 <body>
-    <div class="slider">
+
+    
+<div class="slider">
     <img src="/img/banner.jpg" alt="Banner">
 </div>
 
@@ -162,27 +174,26 @@
             </div>
         </div>
 
-<div class="type-pro">
+    <div class="type-pro">
         <div class="secsion-product">
             <img src="/img/logopro.png" alt="Sản Phẩm">
-            <h1 style="color: #EC6A00;">Kem</h1>
+            <h1 style="color: #EC6A00;">Menu</h1>
         </div>
-
-<div class="container">
-      
-        <div class="row">
-            {{#each products}}
-            <div style="margin: 10px 0px;" class="col-md-4">
-                <div class="product-card">
-                    <a href=""><img src="{{image}}" alt="{{name}}" class="img-fluid"></a>
-                    <h3>{{name}}</h3>
-                    <p class="price">{{price}} ₫ <span class="old-price">{{oldPrice}} ₫</span></p>
+        <div class="container-pro">
+            <h1 class="text-center my-4">Danh sách sản phẩm</h1>
+            <div class="row">
+                {{#each products}}
+                <div style="margin: 10px 0px;" class="col-md-4">
+                    <div class="product-card">
+                        <a href=""><img src="{{image}}" alt="{{name}}" class="img-fluid"></a>
+                        <h3>{{name}}</h3>
+                        <p class="price">{{price}} ₫ <span class="old-price">{{oldPrice}} ₫</span></p>
                     
-                    <button class="add-to-cart-btn" data-slug = "{{this.slug}}">Thêm vào giỏ hàng</button>
+                        <button class="add-to-cart-btn" data-slug = "{{this.slug}}">Thêm vào giỏ hàng</button>
+                    </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </div>
     </div>
 
 
@@ -218,4 +229,7 @@
     });
 });
     </script>
+
+
 </body>
+</html>

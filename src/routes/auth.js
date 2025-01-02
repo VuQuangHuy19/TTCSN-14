@@ -1,20 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const AuthController = require('../app/controllers/AuthControllers');
+const AuthController = require("../app/controllers/AuthControllers");
 
-// Trang đăng ký
-router.get('/register', AuthController.index);
+// Route đăng ký
+router.get("/register", AuthController.index);
+router.post("/register", AuthController.register);
 
-// Trang đăng nhập
-router.get('/login', AuthController.indexlogin);
+// Route đăng nhập
+router.get("/login", AuthController.indexlogin);
+router.post("/login", AuthController.login);
 
-// Xử lý đăng ký người dùng
-router.post('/register', AuthController.register);
+// Route đăng xuất
+router.get("/logout", AuthController.logout);
 
-// Xử lý đăng nhập
-router.post('/login', AuthController.login);
+router.get("/check", AuthController.check);
 
-// Xử lý đăng xuất
-router.get('/logout', AuthController.logout);
+
+// Route hiển thị thông tin người dùng
+router.get("/user", AuthController.userProfile);
 
 module.exports = router;

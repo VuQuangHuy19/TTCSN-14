@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập tài khoản</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="scritps/Travel_Trang_chu.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,7 +90,7 @@ body {
     align-items: center;
 }
 .nav-links li {
-    margin: 0px 15px;
+    margin: 0 15px;
 }
 .nav-links li>a:hover{
     color: #0066cc;
@@ -100,7 +99,7 @@ body {
     text-decoration: none;
     color: #333;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
 }
 .nav-icons {
     display: flex;
@@ -379,13 +378,13 @@ p {
 
 
     <div class="container">
-        <h2 style="color: #FF6F00; font-weight: bold;">Đăng nhập tài khoản</h2>
+        <h2 style="color: #FF6F00; font-weight: bold;">Đăng nhập tài khoản Admin</h2>
 
         {{#if errorMessage}}
             <div class="error-message">{{errorMessage}}</div>
         {{/if}}
 
-        <form action="/login" method="POST">
+        <form action="/admin" method="POST">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" class="form-control" required />
@@ -402,7 +401,7 @@ p {
         </form>
 
         <div class="text-center">
-            <a href="/register">Chưa có tài khoản? Đăng ký ngay!</a>
+            <a href="/registerad">Chưa có tài khoản? Đăng ký ngay!</a>
         </div>
     </div>
 

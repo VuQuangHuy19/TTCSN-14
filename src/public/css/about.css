@@ -282,38 +282,9 @@ margin-bottom: 5px;
 text-decoration: line-through;
 color: #888;
 }
-footer {
-background-color:#FF6F00;
-color: rgb(255, 255, 255);
-padding: 10px 0;
-text-align: center;
-font-family: Arial, sans-serif;
-}
 
-.footer-container p {
-margin: 0;
-padding: 0;
-}
-.footer-container hr{
-padding: 0px 30px;
-}
-.hotline {
-font-size: 1.6em;
-font-weight: bold;
-margin-top: 10px;
-}
-
-.footer-sections {
-width: 100%;
-display: flex;
-justify-content: center;
-margin-top: 20px;
-gap: 180px;
-flex-wrap: wrap;
-}
 
 .section {
-text-align: left;
 min-width: 150px;
 }
 

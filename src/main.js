@@ -1,46 +1,75 @@
 const { engine } = require('express-handlebars');
-const path = require('path')
-const express = require('express')
-const morgan = require('morgan')
-const app = express()
-
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const Handlebars = require('handlebars');
 const session = require('express-session');
-
-const route = require('./routes')
+const route = require('./routes');
 const db = require('./config/db');
-//connect db  
-db.connect()
 
-  
+// Kết nối cơ sở dữ liệu
+db.connect();
+
+const app = express();
+const port = 3333;
+
+// Middleware để xử lý dữ liệu từ form và JSON
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());  // nếu gửi JSON data
+app.use(express.json());
 
-
-const port = 3000
-
-
+// Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// session
+// Cấu hình session
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'abc123',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
 }));
 
+// HTTP logging
+app.use(morgan('combined'));
 
-//http
-app.use(morgan('combined'))
+// Định nghĩa helpers toàn cục
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+});
 
-//Handlebars
-app.engine('handlebars', engine());
+Handlebars.registerHelper('increment', function(value) {
+  return parseInt(value, 10) + 1;
+});
+
+Handlebars.registerHelper('formatPrice', function(value) {
+  if (typeof value === 'number') {
+    return value.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+  }
+  return value; // Trả về giá trị ban đầu nếu không phải là số
+});
+
+Handlebars.registerHelper('compare', function(value1, value2, options) {
+  if (value1 >= value2) {
+    return options.fn(this); // Nếu điều kiện đúng, trả về nội dung block
+  } else {
+    return options.inverse(this); // Nếu điều kiện sai, trả về nội dung block ngược lại
+  }
+});
+
+// Cấu hình Handlebars làm view engine
+app.engine('handlebars', engine({
+  runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true,
+  }
+}));
+
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
+// Định tuyến
 route(app);
 
-
+// Khởi động server
 app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
-})
+  console.log(`App listening on port ${port}`);
+});

@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng ký tài khoản</title>
-    <link rel="stylesheet" href="auth/Travel_Trang_chu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
     <style>
         body {
@@ -14,10 +13,12 @@
 
         .container {
             background-color: #fff;
-            padding: 30px;
             border-radius: 8px;
+            padding: 50px 5%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 1500px; 
+            
         }
 
         h2 {
@@ -47,7 +48,7 @@
         .submit-btn {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #FF6F00;
             border: none;
             color: white;
             font-size: 16px;
@@ -56,7 +57,7 @@
         }
 
         .submit-btn:hover {
-            background-color: #0056b3;
+            background-color: #c45500;
         }
 
         .error-message {
@@ -108,13 +109,13 @@ body {
     margin: 0 15px;
 }
 .nav-links li>a:hover{
-    color: #0066cc;
+    color: #FF6F00;
 }
 .nav-links a {
     text-decoration: none;
     color: #333;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 .nav-icons {
     display: flex;
@@ -176,7 +177,7 @@ body {
 .submenu .see-all {
     display: block;
     margin-top: 10px;
-    color: #0066cc;
+    color: #FF6F00;
 }
 .close-submenu {
     position: absolute;
@@ -222,7 +223,7 @@ body {
     text-align: center;
 }
 .header .tabs div:hover {
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid #FF6F00;
 }
 .form-section {
     margin-top: 20px;
@@ -327,13 +328,10 @@ body {
 }
 
 /*Kham pha san pham*/
-.container {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 50px 5%;
-}
+
 h2 {
-    color: #0066cc;
+    color: #FF6F00;
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -401,7 +399,7 @@ p {
             <div class="success-message">{{successMessage}}</div>
         {{/if}}
 
-        <form action="/auth/register" method="POST">
+        <form action="/register" method="POST">
             <div class="form-group">
                 <label for="fullName">Họ tên <span class="star">(*)</span>:</label>
                 <input type="text" id="fullName" name="fullName" class="form-control" required />
@@ -410,21 +408,6 @@ p {
             <div class="form-group">
                 <label for="dateOfBirth">Ngày sinh <span class="star">(*)</span>:</label>
                 <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" required />
-            </div>
-
-            <div class="form-group">
-                <label for="citizenID">Số CMND/CCCD:</label>
-                <input type="text" id="citizenID" name="citizenID" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label for="passport">Số hộ chiếu:</label>
-                <input type="text" id="passport" name="passport" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label for="dateOfIssue">Ngày cấp hộ chiếu:</label>
-                <input type="date" id="dateOfIssue" name="dateOfIssue" class="form-control" />
             </div>
 
             <div class="form-group">
@@ -446,15 +429,14 @@ p {
                 <label for="address">Địa chỉ <span class="star">(*)</span>:</label>
                 <input type="text" id="address" name="address" class="form-control" required />
             </div>
-
-            <div class="form-group">
-                <label for="referralCode">Mã giới thiệu:</label>
-                <input type="text" id="referralCode" name="referralCode" class="form-control" />
-            </div>
-
             <div class="form-group">
                 <label for="email">Email <span class="star">(*)</span>:</label>
                 <input type="email" id="email" name="email" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại <span class="star">(*)</span>:</label>
+                <input type="text" id="phone" name="phone" class="form-control" required />
             </div>
 
             <div class="form-group">
@@ -473,7 +455,7 @@ p {
         </form>
 
         <div class="text-center">
-            <a href="/auth/login">Đã có tài khoản? Đăng nhập ngay!</a>
+            <a href="/login">Đã có tài khoản? Đăng nhập ngay!</a>
         </div>
     </div>
 

@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ec6a00
+}
+
+.form-container {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #ec6a00;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ec6a00;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.product-list th, .product-list td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.product-list th {
+    background-color:#ec6a00;
+    color: white;
+}
+
+.product-list td {
+    background-color: #fff;
+}
+
+button.edit, button.delete {
+    background-color: #f1c40f;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+button.delete {
+    background-color: #e74c3c;
+}
+
+button.edit:hover, button.delete:hover {
+    opacity: 0.8;
+}
+.banner {
+    background-color: #ec6a00; 
+    background-image: url("http://bingxueglobal.com/uploadfile/2023/07/140485da6ef0523e.jpg"); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+

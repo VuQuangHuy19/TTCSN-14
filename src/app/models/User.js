@@ -11,22 +11,6 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    citizenID: { // CCCD
-        type: String,
-        required: true,
-        unique: true,
-        minlength: 9,
-        maxlength: 12 // CCCD thường có 12 số
-    },
-    passport: { // Passport
-        type: String,
-        required: false, // Không bắt buộc
-        unique: true
-    },
-    dateOfIssue: { // Ngày cấp CMND
-        type: Date,
-        required: true
-    },
     country: { // Quốc gia
         type: String,
         required: true,
@@ -47,11 +31,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         maxlength: 200
     },
-    referralCode: { // Mã giới thiệu
-        type: String,
-        required: false, // Không bắt buộc
-        maxlength: 50
-    },
     password: { // Mật khẩu
         type: String,
         required: true,
@@ -62,6 +41,12 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
         maxlength: 50
+    },
+    phone: { // Họ tên
+        type: String,
+        required: true,
+        minlength: 6,
+        maxlength: 100
     }
 }, { timestamps: true });
 

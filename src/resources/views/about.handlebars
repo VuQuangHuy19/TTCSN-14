@@ -3,9 +3,626 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/about.css">
-
     <title>Bingxue - Về chúng tôi</title>
+    <style>
+        * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    .navbar {
+    position: sticky; /* Hoặc có thể dùng 'fixed' */
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px ;
+    padding-left: 40px;
+    background-color:  #ffffff;
+    gap: 20px;
+}
+
+.navbar .logo {
+    width: 200px;
+    font-weight: bold;
+    color:#FF6F00;
+    border-radius: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items:right;
+    padding-right: 50px;
+}
+
+.nav-links li a {
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    position: relative; /* Để sử dụng z-index */
+    z-index: 5; /* Giá trị cao hơn các phần tử khác để hiển thị trên cùng */
+}
+
+.nav-links li img{
+    width: 20px;
+    height: auto;
+
+}
+/* tạo danh sách me nu bac 2-------------------------*/
+.trangchu-container {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+}
+
+.trangchu-button {
+    background-color: #ffffff; /* Màu đỏ */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+    display: inline;
+    
+}
+
+.trangchu1-button {
+    background-color: #ffffff; /* Màu đỏ */
+    color: rgb(0, 0, 0);
+    padding-top: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+    display: inline;
+    
+}
+
+.trangchu2-button {
+    padding-right: 20px;
+    background-color: #ffffff; /* Màu đỏ */
+    color: rgb(0, 0, 0);
+    padding-top: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+    display: inline;
+    
+}
+
+.trangchu-button img{
+    align-items: center;
+    width: 15px;
+   
+}
+
+.trangchu-button:hover {
+    background-color:#FF6F00; /* Màu đỏ nhạt khi hover */
+    color: rgb(255, 255, 255);
+}
+.home-page button {
+    padding: 10px 20px;
+    background-color: #d7282f;
+    color: #ffffff;
+    font-size: 20px; /* Tăng kích thước chữ */
+    font-weight: normal; /* Đặt lại độ đậm của chữ để giống chữ bình thường */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 6;
+    min-width: 300px;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color:#FF6F00;
+    border-radius: 15px;
+    color: #fff;
+}
+
+
+/* Hiển thị menu khi di chuột vào container */
+.trangchu-container:hover .dropdown-content {
+    display: block;
+}
+
+.nav-icons img {
+    padding-top: 8px;
+    width: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    width: 100%;
+    background-color:#ff9525;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+}
+
+
+
+.hero-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 5px;
+    background-color:#FF6F00;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.banner {
+    width: 90%;
+    position: relative;
+    text-align: center;
+    color: #f4f4f4;
+    background-color:#FF6F00;
+}
+
+.banner img {
+    width: 100%;
+    align-items: center;
+    transition: transform 0.3s ease;
+    border-radius: 50px;
+}
+.banner img:hover {
+    transform: scale(1.02); /* Phóng to 120% */
+}
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Căn lề trái theo khoảng cách từ bên trái */
+    transform: translateY(-50%); /* Chỉ dịch chuyển theo trục Y */
+    text-align: left; /* Căn lề trái cho nội dung */
+    color: black;
+}
+
+.banner-content h1 {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.banner-content p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.banner-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#FF6F00;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+
+.banner-content button:hover {
+    transform: scale(1.1); /* Phóng to nút lên 10% */
+}
+.danhsach{
+    width: 100%;
+    height: auto;   /* tis thay thanh auto-------------------- */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:  #ebebeb;/*-----------------------------------------------------------------------*/
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+.product-card img:hover {
+    transform: scale(1.03); /* Phóng to 120% */
+}
+.product-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+.product-price, .price {
+    color: #e60012;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+    /* Company Profile */
+    .company-profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .company-profile-text {
+        width: 50%;
+    }
+
+    .company-profile-text h1 {
+        color: #f47c20;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .company-profile-text p {
+        line-height: 1.6;
+        color: #666;
+        font-size: 1em;
+    }
+
+    .company-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .company-stats div {
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    .company-stats h3 {
+        font-size: 1.5em;
+        color: #f47c20;
+    }
+
+    .company-image {
+        width: 45%;
+    }
+
+    .company-image img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .navbar1 {
+        display: flex;
+    justify-content: center;
+    gap: 20px; 
+    padding: 10px; 
+    background-color: #f2eaea; 
+    border-radius: 8px; 
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    }
+    .navbar1 a {
+        color: #110801;
+        font-weight: bold;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 18px; /* Tăng kích thước chữ */
+    transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar1 a:hover {
+        color: #f49507;
+   
+    }
+ 
+    /* Brand History */
+    .brand-history {
+        padding: 50px 0;
+    }
+
+    .brand-history h2, .join-us h2, .news-events h2, .brand-strength h2 {
+        color: #f47c20;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        background-color: #f8f5f3;
+        top: 20px;
+        left: 10%;
+    }
+
+    .timeline-item {
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+        position: relative;
+    }
+
+    .timeline-item p {
+        margin-top: 10px;
+        color: #000000;
+        font-size: 0.9em;
+    }
+
+    .timeline-circle {
+        width: 16px;
+        height: 16px;
+        background-color: #eb9437;
+        border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .timeline {
+          display: flex;                /* Sử dụng flexbox để sắp xếp nội dung theo hàng */
+    overflow-x: auto;            /* Cho phép cuộn ngang nếu nội dung vượt quá chiều rộng của container */
+        /* Ngăn ngừa xuống dòng, giữ tất cả các mục trên cùng một hàng */
+    padding: 20px;               /* Thêm padding cho container */
+    border: 1px solid #ccc; 
+ 
+}
+
+.timeline-item {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 50px;
+  margin: 0 10px;
+  display: inline-block;        /* Hiển thị từng mục như một khối trong hàng */
+    min-width: 475px;            /* Chiều rộng tối thiểu cho mỗi mục */
+    background-color: #d0cfcf;   /* Màu nền cho mục */
+    text-align: center;          /* Căn giữa nội dung trong mục */
+    border-radius: 5px; 
+    padding-left: 30px;
+}
+
+/* Tạo hiệu ứng đan xen (bạn có thể tùy chỉnh) */
+
+    /* Join Us */
+    .join-us h2 {
+        color: #f47c20;
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .job-list {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .job-list th, .job-list td {
+        padding: 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .job-list th {
+        background-color: #f47c20;
+        color: #fff;
+    }
+
+    .pagination {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pagination button {
+        padding: 8px 16px;
+        margin: 0 5px;
+        border: none;
+        background-color: #f47c20;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .pagination button.active {
+        background-color: #333;
+    }
+
+    /* News and Events */
+    .news-events {
+        padding: 50px 0;
+    }
+
+    .news-item {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .news-item h3 {
+        color: #f47c20;
+        font-size: 1.5em;
+    }
+    
+    /* Brand Strength */
+    .brand-strength {
+        padding: 50px 0;
+    }
+    section {
+    padding: 100px 10%;
+    text-align: center;
+    }
+
+    .section
+    {
+        text-align: center;
+    }
+    .section1 {
+    min-width: 150px;
+    }
+
+.section1 h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.section1 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section1 li {
+    margin-bottom: 5px;
+}
+
+.section1 a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.section1 a:hover {
+    text-decoration: underline;
+}
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các phần tử xuống hàng khi hết chỗ */
+  gap: 20px; /* Khoảng cách giữa các thẻ tin tức */
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1 1 300px; /* Mỗi card sẽ có kích thước tối thiểu 300px và sẽ co giãn khi có không gian */
+  max-width: 300px; /* Đặt kích thước tối đa cho mỗi card */
+  padding: 20px;
+  border: 1px solid #ffa500;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+   
+ 
+
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống hàng khi hết chỗ */
+    gap: 20px;       /* Khoảng cách giữa các phần tử */
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+.card:hover {
+  background-color: #fdcf79; /* Màu nền khi hover */
+  transform: scale(1.02); /* Phóng to nhẹ khi hover */
+}
+
+
+
+.card p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.card a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #f89447;
+  color: #fff;
+  line-height: 16px;
+  height: 32px;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.card a:hover {
+  background-color: #ec6a00;
+  text-decoration: none;
+}
+
+
+</style>
+    </style>
 </head>
 
 <body>
@@ -27,7 +644,7 @@
     <!-- Company Profile Section -->
     <section class="section company-profile" id="brand-strength">
         <div class="company-profile-text">
-            <h1>BINGXUE</h1>
+            <h1 style="font-weight: bold;">BINGXUE</h1>
             <p>Ở đâu có người trẻ,có thời gian cho Bingxue.</p><br>
             <p>Bingxue là một chuỗi thương hiệu kem và đồ uống trà tại Trung Quốc, trực thuộc Công ty TNHH Tư vấn Quản lý Doanh nghiệp Jinan Baodao. Đây là một thương hiệu chuỗi đồ uống trà nổi tiếng của Trung Quốc tập trung vào "Kem Dừa Đặc trưng". Trụ sở chính đặt tại tỉnh Sơn Đông, Trung Quốc. Bingxue bao gồm các cửa hàng tại 31 tỉnh, thành phố bao gồm Sơn Đông, Hà Bắc, Hà Nam, Sơn Tây, Thiểm Tây, Nội Mông, Liêu Ninh, Hồ Bắc, Hải Nam và Tân Cương. Đến cuối năm 2022, số lượng cửa hàng Bingxue trên toàn thế giới đã vượt quá 3.000.Bingxue lấy "mua sắm nguồn gốc toàn cầu" làm khái niệm phát triển sản phẩm của mình. Nó luôn nhấn mạnh vào hướng nghiên cứu và phát triển "hương vị thơm ngon, thành phần tốt và giá trị bề ngoài cao". Sự ra đời của IP BoBo Bear đã mang lại thêm sức sống và niềm vui cho thương hiệu, chiếm được cảm tình của người tiêu dùng trẻ.</p>
             <div class="company-stats">
