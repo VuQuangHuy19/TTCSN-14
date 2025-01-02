@@ -1,0 +1,327 @@
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ec6a00
+}
+
+.form-container {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #ec6a00;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ec6a00;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.product-list th, .product-list td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.product-list th {
+    background-color:#ec6a00;
+    color: white;
+}
+
+.product-list td {
+    background-color: #fff;
+}
+
+button.edit, button.delete {
+    background-color: #f1c40f;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+button.delete {
+    background-color: #e74c3c;
+}
+
+button.edit:hover, button.delete:hover {
+    opacity: 0.8;
+}
+.banner {
+    background-color: #ec6a00; 
+    background-image: url("http://bingxueglobal.com/uploadfile/2023/07/140485da6ef0523e.jpg"); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    position: relative;
+    width: 100%;
+}   
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* CSS cho Navbar */
+.navbar1 {
+    background-color: #ec6a00; /* Màu nền navbar */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar1 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar1 ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbar1 ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.navbar1 ul li a:hover {
+    background-color: #f1c40f; /* Màu nền khi hover */
+    transition: background-color 0.3s;
+}
+
+
+
+
+
+</style>
+<body>
+    <div class="navbar1">
+        <ul>
+            <li><a href="/admin/qlsanpham">Quản lý sản phẩm</a></li>
+            <li><a href="/admin/qldonhang">Quản lý đơn hàng</a></li>
+            <li><a href="/admin/qlkhachhang">Quản lý khách hàng</a></li>
+        </ul>
+    </div>
+    <div class="notification">
+        {{#if successMessage}}
+            <div id="alert-message" class="alert alert-success">
+                {{successMessage}}
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="container">
+        <h1>Quản lý sản phẩm đồ uống Bingxue</h1>
+
+        <div class="form-container">
+        <form id="productForm" action="/admin/qlsanpham/add" method="POST">
+        <input type="hidden" id="productId" name="id" />
+        
+        <label for="productName">Tên sản phẩm:</label>
+        <input type="text" id="productName" name="name" required />
+        
+        <label for="productImage">Ảnh:</label>
+        <input type="text" id="productImage" name="img" required />
+        
+        <label for="productPrice">Giá:</label>
+        <input type="number" id="productPrice" name="price" required />
+        
+        <label for="productOldPrice">Giá cũ:</label>
+        <input type="number" id="productOldPrice" name="oldPrice" />
+        
+        <label for="productCategory">Loại sản phẩm:</label>
+        <select id="productCategory" name="category" required>
+            <option value="Kem">Kem</option>
+            <option value="Trà Sữa">Trà Sữa</option>
+            <option value="Nước Hoa Quả">Nước Hoa Quả</option>
+            <option value="Nước Dừa">Nước Dừa</option>
+        </select>
+
+        </select>
+        
+        <button type="submit">Lưu sản phẩm</button>
+    </form>
+</div>
+        
+
+        <div class="product-list">
+        <h2>Danh sách sản phẩm</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Giá</th>
+                <th>Giá cũ</th>
+                <th>Loại sản phẩm</th> <!-- Đổi thành Loại sản phẩm -->
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <td>{{name}}</td>
+                <td><img src="{{image}}" alt="{{name}}" style="width: 100px; height: auto;" /></td>
+                <td>{{price}} ₫</td>
+                <td>{{oldPrice}} ₫</td>
+                <td>{{category}}</td> <!-- Hiển thị Loại sản phẩm -->
+                <td>
+                    <button type="button" class="btn edit" onclick="showEditModal('{{_id}}', '{{name}}', '{{img}}', '{{price}}', '{{oldPrice}}', '{{category}}')">Sửa</button>
+                    <form action="/admin/qlsanpham/delete/{{_id}}" method="POST" style="display: inline;">
+                        <button type="submit" class="btn delete">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+</tbody>
+
+        </table>
+    </div>
+    </div>
+
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Sửa sản phẩm</h2>
+            <form id="editForm" method="POST">
+                <input type="hidden" id="editProductId" name="id" />
+                <label for="editName">Tên sản phẩm:</label>
+                <input type="text" id="editName" name="name" required />
+                
+                <label for="editImage">Ảnh URL:</label>
+                <input type="text" id="editImage" name="img" required />
+
+                <label for="editPrice">Giá:</label>
+                <input type="number" id="editPrice" name="price" required />
+
+                <label for="editOldPrice">Giá cũ:</label>
+                <input type="number" id="editOldPrice" name="oldPrice" />
+
+                <label for="editCategory">Loại sản phẩm:</label>
+                <select id="editCategory" name="category">
+                    <option value="Kem">Kem</option>
+                    <option value="Trà Sữa">Trà Sữa</option>
+                    <option value="Nước Hoa Quả">Nước Hoa Quả</option>
+                    <option value="Nước Dừa">Nước Dừa</option>
+                </select>
+
+
+                <button type="submit">Cập nhật</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const alertMessage = document.getElementById('alert-message');
+            if (alertMessage) {
+                // Thêm animation
+                setTimeout(() => {
+                    alertMessage.style.opacity = '0';
+                    alertMessage.style.transition = 'opacity 1s ease';
+                }, 2000); // Hiển thị trong 3 giây
+
+                // Xóa hoàn toàn khỏi DOM sau animation
+                setTimeout(() => {
+                    alertMessage.remove();
+                }, 3000);
+            }
+        });
+
+
+         // Hiển thị modal sửa
+    function showEditModal(id, name, img, price, oldPrice, category) {
+    document.getElementById('editModal').style.display = 'block';
+    document.getElementById('editProductId').value = id;
+    document.getElementById('editName').value = name;
+    document.getElementById('editImage').value = img;
+    document.getElementById('editPrice').value = price;
+    document.getElementById('editOldPrice').value = oldPrice;
+    document.getElementById('editCategory').value = category; // Gán giá trị category
+    }
+
+    // Đóng modal
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+    </script>
+</body>
